@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctxd1bg4w36x"]
+
+[ext_resource type="Texture2D" uid="uid://b7qhiaxthqyc5" path="res://assets/sprites/corpse.png" id="1_liquy"]
+
+[node name="Corpse" type="Sprite2D"]
+texture = ExtResource("1_liquy")
+offset = Vector2(0, 17)

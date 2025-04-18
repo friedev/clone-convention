@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://l8iygfqprflp"]
+
+[ext_resource type="Script" uid="uid://d0c6otxy834p0" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://31psgy34774t" path="res://scenes/ninja.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://btptdcsf7o1lc" path="res://scenes/menus/credits_menu.tscn" id="3_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://cpgmxhix5jqaa" path="res://scenes/menus/game_over_menu.tscn" id="4_tipki"]
+[ext_resource type="PackedScene" uid="uid://dwbkolmyih02g" path="res://scenes/menus/main_menu.tscn" id="5_85g3d"]
+[ext_resource type="PackedScene" uid="uid://cswjis18hols6" path="res://scenes/menus/pause_menu.tscn" id="7_ya4ey"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0wfyh"]
+normal = Vector2(1, 0)
+distance = -960.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sugp2"]
+normal = Vector2(-1, 0)
+distance = -960.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jyhfs"]
+normal = Vector2(0, 1)
+distance = -540.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tbgi4"]
+distance = -540.0
+
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_sugp2")
+npc_count = 40
+world_size = Vector2(1920, 1080)
+ninja_scene = ExtResource("2_0wfyh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.667, 0.667)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="LeftBoundary" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_0wfyh")
+
+[node name="RightBoundary" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_sugp2")
+
+[node name="UpBoundary" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_jyhfs")
+
+[node name="DownBoundary" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_tbgi4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="MainMenu" parent="CanvasLayer/MarginContainer" instance=ExtResource("5_85g3d")]
+visible = false
+layout_mode = 2
+
+[node name="CreditsMenu" parent="CanvasLayer/MarginContainer" instance=ExtResource("3_o6xl0")]
+visible = false
+layout_mode = 2
+
+[node name="PauseMenu" parent="CanvasLayer/MarginContainer" instance=ExtResource("7_ya4ey")]
+visible = false
+layout_mode = 2
+
+[node name="GameOverMenu" parent="CanvasLayer/MarginContainer" instance=ExtResource("4_tipki")]
+visible = false
+layout_mode = 2
+
+[connection signal="credits_pressed" from="CanvasLayer/MarginContainer/MainMenu" to="CanvasLayer/MarginContainer/CreditsMenu" method="open"]
+[connection signal="play_pressed" from="CanvasLayer/MarginContainer/MainMenu" to="." method="_on_main_menu_play_pressed"]

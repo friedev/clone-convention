@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://btptdcsf7o1lc"]
+
+[ext_resource type="Script" uid="uid://b0kup1urq7wrq" path="res://scenes/menus/menu.gd" id="1_75ub6"]
+[ext_resource type="Theme" uid="uid://drr7f6v8hdap" path="res://assets/themes/title_theme.tres" id="2_scm5y"]
+[ext_resource type="Script" uid="uid://mxn3acp5o53q" path="res://scenes/menus/linked_label.gd" id="4_kmd2l"]
+
+[node name="CreditsMenu" type="CenterContainer" node_paths=PackedStringArray("default_focus")]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_75ub6")
+default_focus = NodePath("VBoxContainer/BackButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_scm5y")
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center]A clone of [url=https://www.kongregate.com/games/dude4k/ninja-convention]Ninja Convention[/url] by [url=https://www.kongregate.com/accounts/dude4k]dude4k[/url]
+
+Created by [url=https://frie.dev]Aaron Friesen[/url]
+
+Made in [url=https://godotengine.org]Godot Engine[/url]
+
+Font: [url=https://fonts.google.com/specimen/Charm]Charm[/url] by Cadson Demak, licensed under the [url=https://fonts.google.com/specimen/Charm/license]SIL Open Font License, Version 1.1[/url]
+[/center]"
+fit_content = true
+script = ExtResource("4_kmd2l")
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="close"]
