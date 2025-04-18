@@ -31,20 +31,20 @@ layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_bottom = 8
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/MarginContainer"]
-custom_minimum_size = Vector2(360, 0)
+custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/line_separation = 8
 bbcode_enabled = true
 text = "[center]A clone of [url=https://www.kongregate.com/games/dude4k/ninja-convention]Ninja Convention[/url] by [url=https://www.kongregate.com/accounts/dude4k]dude4k[/url]
-
 Created by [url=https://frie.dev]Aaron Friesen[/url]
-
 Made in [url=https://godotengine.org]Godot Engine[/url]
-
-Font: [url=https://fonts.google.com/specimen/Charm]Charm[/url] by Cadson Demak, licensed under the [url=https://fonts.google.com/specimen/Charm/license]SIL Open Font License, Version 1.1[/url]
+Font: [url=https://fonts.google.com/specimen/Charm]Charm[/url] by Cadson Demak
+Code license: [url=https://mit-license.org/]MIT License[/url]
+Art license: [url=https://creativecommons.org/licenses/by/4.0/]CC BY 4.0[/url]
 [/center]"
 fit_content = true
 script = ExtResource("4_kmd2l")
