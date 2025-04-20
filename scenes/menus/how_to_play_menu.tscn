@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckeds4607axw"]
+
+[ext_resource type="Script" uid="uid://b0kup1urq7wrq" path="res://scenes/menus/menu.gd" id="1_uei3t"]
+[ext_resource type="Theme" uid="uid://drr7f6v8hdap" path="res://assets/themes/title_theme.tres" id="2_jrgeo"]
+[ext_resource type="Script" uid="uid://mxn3acp5o53q" path="res://scenes/menus/linked_label.gd" id="3_trqgs"]
+
+[node name="HowToPlayMenu" type="CenterContainer" node_paths=PackedStringArray("default_focus")]
+process_mode = 3
+script = ExtResource("1_uei3t")
+default_focus = NodePath("VBoxContainer/BackButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_jrgeo")
+text = "How to Play"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Player 1:
+
+[ul]
+Move: Arrows
+Shoot: Enter/NumPad 0/X
+[/ul]
+
+Player 2:
+
+[ul]
+Move: WASD
+Shoot: Space
+[/ul]
+
+Your goal is to assassinate the other player, but you must first figure out which ninja you are, and which one they are."
+fit_content = true
+script = ExtResource("3_trqgs")
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="close"]

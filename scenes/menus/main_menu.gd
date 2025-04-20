@@ -1,6 +1,7 @@
 extends Menu
 
 signal play_pressed(previous: Menu)
+signal how_to_play_pressed(previous: Menu)
 signal credits_pressed(previous: Menu)
 
 
@@ -15,6 +16,11 @@ func open(_previous: Menu = null) -> void:
 func _on_play_button_pressed() -> void:
 	self.close()
 	self.play_pressed.emit(self)
+
+
+func _on_how_to_play_button_pressed() -> void:
+	self.hide()
+	self.how_to_play_pressed.emit(self)
 
 
 func _on_credits_button_pressed() -> void:
