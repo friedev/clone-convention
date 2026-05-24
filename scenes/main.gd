@@ -1,4 +1,5 @@
-class_name Main extends Node
+class_name Main
+extends Node
 
 @export var npc_count: int
 @export var world_size: Vector2
@@ -22,7 +23,7 @@ func spawn_ninja(player := 0) -> void:
 	ninja.player = player
 	ninja.position = Vector2(
 		randf_range(-0.5, 0.5) * world_size.x,
-		randf_range(-0.5, 0.5) * world_size.y
+		randf_range(-0.5, 0.5) * world_size.y,
 	)
 	add_child(ninja)
 

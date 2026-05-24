@@ -1,4 +1,5 @@
-class_name Shuriken extends Area2D
+class_name Shuriken
+extends Area2D
 
 @export var speed: float
 @export var max_range: float

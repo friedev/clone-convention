@@ -1,4 +1,5 @@
-class_name Ninja extends CharacterBody2D
+class_name Ninja
+extends CharacterBody2D
 
 const DIRECTIONS: Array[Vector2] = [
 	Vector2.LEFT,
@@ -6,7 +7,6 @@ const DIRECTIONS: Array[Vector2] = [
 	Vector2.UP,
 	Vector2.DOWN,
 ]
-
 
 @export var speed: float
 @export var shuriken_cooldown: float
@@ -46,7 +46,7 @@ func _physics_process(_delta: float) -> void:
 			"move_left_p%d" % player,
 			"move_right_p%d" % player,
 			"move_up_p%d" % player,
-			"move_down_p%d" % player
+			"move_down_p%d" % player,
 		)
 	var prev_velocity := velocity
 	move_and_slide()
