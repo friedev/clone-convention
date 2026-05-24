@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://31psgy34774t"]
+[gd_scene format=3 uid="uid://31psgy34774t"]
 
-[ext_resource type="Script" uid="uid://b7s5hnpexcs6w" path="res://scenes/ninja.gd" id="1_4i837"]
-[ext_resource type="Texture2D" uid="uid://dyb4an5ftpv2d" path="res://assets/sprites/ninja.png" id="2_kpdli"]
-[ext_resource type="PackedScene" uid="uid://c0uj6v2p1lxoi" path="res://scenes/shuriken.tscn" id="2_r7j1o"]
-[ext_resource type="PackedScene" uid="uid://ctxd1bg4w36x" path="res://scenes/corpse.tscn" id="3_r7j1o"]
+[ext_resource type="Script" uid="uid://b7s5hnpexcs6w" path="res://src/ninja.gd" id="1_4i837"]
+[ext_resource type="Texture2D" uid="uid://dyb4an5ftpv2d" path="res://assets/images/ninja.png" id="2_kpdli"]
+[ext_resource type="PackedScene" uid="uid://c0uj6v2p1lxoi" path="res://src/shuriken.tscn" id="2_r7j1o"]
+[ext_resource type="PackedScene" uid="uid://ctxd1bg4w36x" path="res://src/corpse.tscn" id="3_r7j1o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
 size = Vector2(32, 64)
@@ -47,7 +47,7 @@ _data = {
 &"wiggle": SubResource("Animation_kpdli")
 }
 
-[node name="Ninja" type="CharacterBody2D"]
+[node name="Ninja" type="CharacterBody2D" unique_id=1245659187]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_4i837")
@@ -58,14 +58,12 @@ max_move_delay = 5.0
 shuriken_scene = ExtResource("2_r7j1o")
 corpse_scene = ExtResource("3_r7j1o")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=911881147]
 shape = SubResource("RectangleShape2D_tefeu")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=358907720]
 texture = ExtResource("2_kpdli")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_5krh3")
-}
-autoplay = "wiggle"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1047973531]
+libraries/ = SubResource("AnimationLibrary_5krh3")
+autoplay = &"wiggle"

@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://btptdcsf7o1lc"]
+[gd_scene format=3 uid="uid://btptdcsf7o1lc"]
 
-[ext_resource type="Script" uid="uid://b0kup1urq7wrq" path="res://scenes/menus/menu.gd" id="1_75ub6"]
+[ext_resource type="Script" uid="uid://b0kup1urq7wrq" path="res://src/menus/menu.gd" id="1_75ub6"]
 [ext_resource type="Theme" uid="uid://drr7f6v8hdap" path="res://assets/themes/title_theme.tres" id="2_scm5y"]
-[ext_resource type="Script" uid="uid://mxn3acp5o53q" path="res://scenes/menus/linked_label.gd" id="4_kmd2l"]
+[ext_resource type="Script" uid="uid://mxn3acp5o53q" path="res://src/menus/linked_label.gd" id="4_kmd2l"]
 
-[node name="CreditsMenu" type="CenterContainer" node_paths=PackedStringArray("default_focus")]
+[node name="CreditsMenu" type="CenterContainer" unique_id=1396961013 node_paths=PackedStringArray("default_focus")]
 process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,26 +14,26 @@ grow_vertical = 2
 script = ExtResource("1_75ub6")
 default_focus = NodePath("VBoxContainer/BackButton")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=471541693]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=993410308]
 layout_mode = 2
 theme = ExtResource("2_scm5y")
 text = "Credits"
 horizontal_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1342678656]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer" unique_id=558962238]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 8
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/MarginContainer" unique_id=524295600]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 size_flags_vertical = 3
@@ -49,7 +49,7 @@ Art license: [url=https://creativecommons.org/licenses/by/4.0/]CC BY 4.0[/url]
 fit_content = true
 script = ExtResource("4_kmd2l")
 
-[node name="BackButton" type="Button" parent="VBoxContainer"]
+[node name="BackButton" type="Button" parent="VBoxContainer" unique_id=1182003052]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Back"

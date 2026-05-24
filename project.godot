@@ -22,8 +22,8 @@ config/icon="uid://d2vdilt18for7"
 
 [autoload]
 
-SignalBus="*res://scenes/signal_bus.gd"
-Globals="*res://scenes/globals.gd"
+SignalBus="*res://src/signal_bus.gd"
+Globals="*res://src/globals.gd"
 
 [debug]
 
