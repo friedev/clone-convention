@@ -4,16 +4,16 @@ extends Menu
 
 
 func _ready() -> void:
-	self.hide()
-	SignalBus.player_died.connect(self._on_player_died)
+	hide()
+	SignalBus.player_died.connect(_on_player_died)
 
 
 func _on_menu_button_pressed() -> void:
-	self.get_tree().reload_current_scene()
+	get_tree().reload_current_scene()
 
 
 func _on_player_died(player: int) -> void:
-	if self.visible:
+	if visible:
 		return
-	self.label.text = "Player %d Wins!" % (3 - player)
-	self.open()
+	label.text = "Player %d Wins!" % (3 - player)
+	open()

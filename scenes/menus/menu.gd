@@ -10,35 +10,35 @@ var previous: Menu
 
 
 func _ready() -> void:
-	self.hide()
+	hide()
 
 
 func open(previous: Menu = null) -> void:
-	if self.visible:
+	if visible:
 		return
-	self.previous = previous
-	self.show()
-	if self.default_focus != null:
-		self.default_focus.grab_focus()
+	previous = previous
+	show()
+	if default_focus != null:
+		default_focus.grab_focus()
 	Globals.is_menu_open = true
-	self.opened.emit()
+	opened.emit()
 
 
 func close() -> void:
-	if not self.visible:
+	if not visible:
 		return
-	self.hide()
-	if self.can_go_back and self.previous != null:
-		self.previous.open()
+	hide()
+	if can_go_back and previous != null:
+		previous.open()
 	else:
 		Globals.is_menu_open = false
-	self.closed.emit()
+	closed.emit()
 
 
 func _input(event: InputEvent) -> void:
 	if (
-		self.can_go_back
-		and self.visible
+		can_go_back
+		and visible
 		and event.is_action_pressed(&"ui_cancel")
 	):
-		self.close()
+		close()
